@@ -23,20 +23,28 @@ $id = $_GET["id"];
 <input name="action" type="hidden" value="obec"> 
 <select name="obec">
 <?php
-$query0 = "SELECT * FROM obce GROUP BY nazev_obce;";
+$query0 = "SELECT * FROM obce GROUP BY kod_obce ORDER BY nazev_obce;";
 if ($result0 = mysqli_query($link, $query0)) {
 
-    while ($row0 = mysqli_fetch_row($result0)) {
+	while ($row0 = mysqli_fetch_row($result0)) {
                 $kod = $row0[0];
                 $nazev = $row0[1];
                 $pripadu = $row0[2];
- 
-                echo "<option value=\"$kod\"";
-                if ($kod == $obec) {echo " SELECTED";}
-                echo ">$nazev ($pripadu)</option>";
-}
-               
-  mysqli_free_result($result0);
+
+		$query00 = "SELECT * FROM ruian_obce WHERE lau2='$kod';";
+		if ($result00 = mysqli_query($link, $query00)) {
+
+		    while ($row00 = mysqli_fetch_row($result00)) {
+                	$lau1 = $row00[1];
+
+	                echo "<option value=\"$kod\"";
+        	        if ($kod == $obec) {echo " SELECTED";}
+	                echo ">$nazev $lau1 ($pripadu)</option>";
+    		    }
+		    mysqli_free_result($result00);
+		} else echo("Error description: " . mysqli_error($link));
+	}
+	mysqli_free_result($result0);
 } else echo("Error description: " . mysqli_error($link));
 ?>
 </select>
@@ -48,20 +56,29 @@ if ($result0 = mysqli_query($link, $query0)) {
 <input name="action" type="hidden" value="obec"> 
 <select name="obec">
 <?php
-$query0 = "SELECT * FROM obce_rekl GROUP BY nazev_obce;";
-if ($result0 = mysqli_query($link, $query0)) {
+$query1 = "SELECT * FROM obce_rekl GROUP BY kod_obce ORDER BY nazev_obce;";
+if ($result1 = mysqli_query($link, $query1)) {
 
-    while ($row0 = mysqli_fetch_row($result0)) {
-                $kod = $row0[0];
-                $nazev = $row0[1];
-                $pripadu = $row0[2];
+	while ($row1 = mysqli_fetch_row($result1)) {
+                $kod = $row1[0];
+                $nazev = $row1[1];
+                $pripadu = $row1[2];
+
+		$query10 = "SELECT * FROM ruian_obce WHERE lau2='$kod';";
+		if ($result10 = mysqli_query($link, $query10)) {
+
+			while ($row10 = mysqli_fetch_row($result10)) {
+                		$lau1 = $row10[1];
  
-                echo "<option value=\"$kod\"";
-                if ($kod == $obec) {echo " SELECTED";}
-                echo ">$nazev ($pripadu)</option>";
-}
-               
-  mysqli_free_result($result0);
+                		echo "<option value=\"$kod\"";
+				if ($kod == $obec) {echo " SELECTED";}
+				echo ">$nazev $lau1 ($pripadu)</option>";
+			}
+			mysqli_free_result($result10);
+		} else echo("Error description: " . mysqli_error($link));		
+	}
+              
+	mysqli_free_result($result1);
 } else echo("Error description: " . mysqli_error($link));
 ?>
 </select>
