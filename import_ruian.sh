@@ -42,4 +42,6 @@ mysql -u ${USER} -p${PASSWORD} ${DB} < uklid.sql
 
 echo "... hotovo."
 
+mysqlimport --fields-terminated-by=\; --columns='lau1,lau2,nazev_obce' --local -u ${USER} -p${PASSWORD} ${DB} ruian_obce
+
 exit;
