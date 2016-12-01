@@ -57,7 +57,7 @@ $query3 = "SELECT * FROM duplicate_ul WHERE (stav='2');";
 if ($result3 = mysqli_query($link, $query3)) {
 
     while ($row3 = mysqli_fetch_row($result3)) {
-		$kod_obce = $row3[0]                
+		$kod_obce = $row3[0];                
 		$nazev_ulice = $row3[2];
                 $cislo = $row3[3];
                 $znak = $row3[4];

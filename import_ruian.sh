@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME="20161031_OB_ADR_csv.zip"
+NAME="20161130_OB_ADR_csv.zip"
 CESTA_K_CSV="./CSV"  ## cesta, kde jsi rozbalil archiv (cesta až k souborům)
 
 ######################
