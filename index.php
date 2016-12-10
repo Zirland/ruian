@@ -110,7 +110,7 @@ switch ($action) {
     break; 
 
   case "nofixul" :
-    mysqli_query($link, "UPDATE duplicate_ul SET stav=1 WHERE (id='$id');");
+    mysqli_query($link, "UPDATE duplicate_ul SET stav=2 WHERE (id='$id');");
     require 'list.php';
     break; 
 
