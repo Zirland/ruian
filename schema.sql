@@ -27,13 +27,13 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
-DROP TABLE IF EXISTS `ruian_obce`;
+#DROP TABLE IF EXISTS `ruian_obce`;
 
-CREATE TABLE `ruian_obce` (
-`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-`lau1` varchar(6),
-`lau2` INT(6),
-`nazev_obce` VARCHAR(255),
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+#CREATE TABLE `ruian_obce` (
+#`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+#`lau1` varchar(6),
+#`lau2` INT(6),
+#`nazev_obce` VARCHAR(255),
+#PRIMARY KEY (`id`)
+#) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 

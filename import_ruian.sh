@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME="20161130_OB_ADR_csv.zip"
+NAME="20161231_OB_ADR_csv.zip"
 CESTA_K_CSV="./CSV"  ## cesta, kde jsi rozbalil archiv (cesta až k souborům)
 
 ######################
@@ -42,6 +42,6 @@ mysql -u ${USER} -p${PASSWORD} ${DB} < uklid.sql
 
 echo "... hotovo."
 
-mysqlimport --fields-terminated-by=\; --columns='lau1,lau2,nazev_obce' --local -u ${USER} -p${PASSWORD} ${DB} ruian_obce
+#mysqlimport --fields-terminated-by=\; --columns='lau1,lau2,nazev_obce' --local -u ${USER} -p${PASSWORD} ${DB} ruian_obce
 
 exit;
