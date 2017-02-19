@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME="20161231_OB_ADR_csv.zip"
+NAME="20170131_OB_ADR_csv.zip"
 CESTA_K_CSV="./CSV"  ## cesta, kde jsi rozbalil archiv (cesta až k souborům)
 
 ######################
@@ -33,11 +33,15 @@ echo "... hotovo."
 
 cd ..
 
+rm -rf ${CESTA_K_CSV}
+
 echo "Zjišťuji chyby..."
 mysql -u ${USER} -p${PASSWORD} ${DB} < chyby.sql
 
+echo "Migruji..."
 curl http://andreas.zirland.org/ruian/migrace.php
 
+echo "Uklízím..."
 mysql -u ${USER} -p${PASSWORD} ${DB} < uklid.sql
 
 echo "... hotovo."
