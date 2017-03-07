@@ -128,9 +128,11 @@ switch ($action) {
     mysqli_query($link, "DROP TABLE obce;");
     mysqli_query($link, "CREATE TABLE obce SELECT kod_obce, nazev_obce, count(*) AS pocet FROM duplicate_obj WHERE (stav='0') GROUP BY kod_obce;");
     mysqli_query($link, "INSERT INTO obce SELECT kod_obce, nazev_obce, count(*) AS pocet FROM duplicate_ul WHERE (stav='0') GROUP BY kod_obce;");
+//    mysqli_query($link, "CREATE TABLE obce SELECT kod_obce, nazev_obce, count(*) AS pocet FROM duplicate_ul WHERE (stav='0') GROUP BY kod_obce;");
     mysqli_query($link, "DROP TABLE obce_rekl;");
     mysqli_query($link, "CREATE TABLE obce_rekl SELECT kod_obce, nazev_obce, count(*) AS pocet FROM duplicate_obj WHERE (stav='1') GROUP BY kod_obce;");
     mysqli_query($link, "INSERT INTO obce_rekl SELECT kod_obce, nazev_obce, count(*) AS pocet FROM duplicate_ul WHERE (stav='1') GROUP BY kod_obce;");
+//    mysqli_query($link, "CREATE TABLE obce_rekl SELECT kod_obce, nazev_obce, count(*) AS pocet FROM duplicate_ul WHERE (stav='1') GROUP BY kod_obce;");
     break; 
 }
 
